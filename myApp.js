@@ -2,6 +2,12 @@ let express = require("express");
 require("dotenv").config();
 let app = express();
 console.log("Hello World");
+
+app.use((req, res, next) => {
+  console.log(req.method + " " + req.path + " - " + req.ip);
+  next();
+});
+
 let path = __dirname + "/public";
 const middlewareFunction = express.static(path);
 app.use(middlewareFunction);
