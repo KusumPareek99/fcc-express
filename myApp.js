@@ -54,6 +54,9 @@ app
     //console.log(first, last);
     res.json({ name: `${first} ${last}` });
   })
-  .post((req, res) => {});
+  .post((req, res) => {
+    let { first, last } = req.body;
+    res.json({ name: `${first} ${last}` });
+  });
 
 module.exports = app;
